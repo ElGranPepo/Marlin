@@ -1612,12 +1612,13 @@
 #if ENABLED (GTM32)
 #define ARC_SUPPORT             // Disable this feature to save ~3226 bytes  //8bit cant handle
 #if ENABLED(ARC_SUPPORT)
-  #define MM_PER_ARC_SEGMENT    1 // (mm) Length (or minimum length) of each arc segment
-  #define MIN_ARC_SEGMENTS     24 // Minimum number of segments in a complete circle
+  #define MM_PER_ARC_SEGMENT      1 // (mm) Length (or minimum length) of each arc segment
+  //#define ARC_SEGMENTS_PER_R    1 // Max segment length, MM_PER = Min
+  #define MIN_ARC_SEGMENTS       24 // Minimum number of segments in a complete circle
   //#define ARC_SEGMENTS_PER_SEC 50 // Use feedrate to choose segment length (with MM_PER_ARC_SEGMENT as the minimum)
-  #define N_ARC_CORRECTION     25 // Number of interpolated segments between corrections
-  //#define ARC_P_CIRCLES         // Enable the 'P' parameter to specify complete circles
-  //#define CNC_WORKSPACE_PLANES  // Allow G2/G3 to operate in XY, ZX, or YZ planes
+  #define N_ARC_CORRECTION       25 // Number of interpolated segments between corrections
+  //#define ARC_P_CIRCLES           // Enable the 'P' parameter to specify complete circles
+  //#define CNC_WORKSPACE_PLANES    // Allow G2/G3 to operate in XY, ZX, or YZ planes
 #endif
 
 // Support for G5 with XYZE destination and IJPQ offsets. Requires ~2666 bytes.
@@ -1812,6 +1813,9 @@
   // Z raise distance for tool-change, as needed for some extruders
   #define TOOLCHANGE_ZRAISE     0  // (mm)
   //#define TOOLCHANGE_NO_RETURN   // Never return to the previous position on tool-change
+  #if ENABLED(TOOLCHANGE_NO_RETURN)
+    //#define EVENT_GCODE_AFTER_TOOLCHANGE "G12X"   // G-code to run after tool-change is complete
+  #endif
 
   // Retract and prime filament on tool-change
   //#define TOOLCHANGE_FILAMENT_SWAP
@@ -2507,6 +2511,14 @@
 
 #endif // HAS_L64XX
 
+// @section i2cbus
+
+//
+// I2C Master ID for LPC176x LCD and Digital Current control
+// Does not apply to other peripherals based on the Wire library.
+//
+//#define I2C_MASTER_ID  1  // Set a value from 0 to 2
+
 /**
  * TWI/I2C BUS
  *
@@ -2535,10 +2547,10 @@
  * echo:i2c-reply: from:99 bytes:5 data:hello
  */
 
-// @section i2cbus
-
 //#define EXPERIMENTAL_I2CBUS
-#define I2C_SLAVE_ADDRESS  0 // Set a value from 8 to 127 to act as a slave
+#if ENABLED(EXPERIMENTAL_I2CBUS)
+  #define I2C_SLAVE_ADDRESS  0  // Set a value from 8 to 127 to act as a slave
+#endif
 
 // @section extras
 
