@@ -350,7 +350,7 @@
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-//#define FAN_KICKSTART_TIME 100
+#define FAN_KICKSTART_TIME 100
 
 // Some coolers may require a non-zero "off" state.
 //#define FAN_OFF_PWM  1
@@ -587,9 +587,9 @@
 #define X_HOME_BUMP_MM 5
 #define Y_HOME_BUMP_MM 5
 #define Z_HOME_BUMP_MM 5
-#define HOMING_BUMP_DIVISOR { 10, 10, 1 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
+#define HOMING_BUMP_DIVISOR { 5, 5, 1 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 #define QUICK_HOME                       // If homing includes X and Y, do a diagonal move initially
-#define HOMING_BACKOFF_MM { X_MIN_POS, Y_MIN_POS, (Z_MIN_POS + 1)}  // (mm) Move away from the endstops after homing
+//#define HOMING_BACKOFF_MM { X_MIN_POS, Y_MIN_POS, (Z_MIN_POS + 1)}  // (mm) Move away from the endstops after homing
 
 // When G28 is called, this option will make Y home before X
 #define HOME_Y_BEFORE_X
@@ -660,7 +660,7 @@
   //#define BLTOUCH_HS_MODE
 
   // Safety: Enable voltage mode settings in the LCD menu.
-  //#define BLTOUCH_LCD_VOLTAGE_MENU
+  #define BLTOUCH_LCD_VOLTAGE_MENU
 
 #endif // BLTOUCH
 
@@ -3157,9 +3157,11 @@
 // @section develop
 
 //
-// M100 Free Memory Watcher to debug memory usage
+// M100 Free Memory Watcher
 //
-//#define M100_FREE_MEMORY_WATCHER
+#if DISABLED (GTM32)
+  //#define M100_FREE_MEMORY_WATCHER    // Add M100 (Free Memory Watcher) to debug memory usage
+#endif
 
 //
 // M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe

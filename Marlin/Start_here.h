@@ -24,21 +24,21 @@
 
 //(Step 2) enable 1 driver timing set
 //#define STOCK     // Enable A4988   on all drivers (stock drivers)
-#define T2208    // Enable TMC2208 Standalone on all drivers
-//#define T2209    // Enable TMC2209 Standalone all drivers
-//#define T2130    // Enable TMC2130 Standalone all drivers
-//#define T2160    // Enable TMC2160 Standalone all drivers
-//#define T26X     // Enable TMC226X Standalone all drivers
-//#define T2660    // Enable TMC2660 Standalone all drivers
-//#define T5130    // Enable TMC5130 Standalone all drivers
-//#define T5160    // Enable TMC5160 Standalone all drivers
-//#define A598     // Enable A5984   all drivers
-//#define D8825    // Enable DRV8825 all drivers
-//#define L8729    // Enable LV8729  all drivers
-//#define L647     // Enable L6470   all drivers
-//#define T6560    // Enable TB6560  all drivers
-//#define T6600    // Enable TB6600  all drivers
-//#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with custom set & invert if needed #if ENABLED (CUSTOM) below
+#define TMC2208    // Enable TMC2208 Standalone on all drivers
+//#define TMC2209    // Enable TMC2209 Standalone all drivers
+//#define TMC2130    // Enable TMC2130 Standalone all drivers
+//#define TMC2160    // Enable TMC2160 Standalone all drivers
+//#define TMC26X     // Enable TMC226X Standalone all drivers
+//#define TMC2660    // Enable TMC2660 Standalone all drivers
+//#define TMC5130    // Enable TMC5130 Standalone all drivers
+//#define TMC5160    // Enable TMC5160 Standalone all drivers
+//#define A5984     // Enable A5984   all drivers
+//#define DRV8825    // Enable DRV8825 all drivers
+//#define LV8729    // Enable LV8729  all drivers
+//#define L6470     // Enable L6470   all drivers
+//#define TB6560    // Enable TB6560  all drivers
+//#define TB6600    // Enable TB6600  all drivers
+//#define CUSTOM   // Fill in ENABLED (CUSTOM) in configuration.h with custom set & invert if needed ENABLED (CUSTOM) below.
 
 //(Step 3) enable 1 if you have mixing or multi extruder (C D M T variants)
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
@@ -53,7 +53,7 @@
 //#define FMP         // Enable Fixed Mounted Type Probe
 
 //UBL Options
-//#define BEDCLIPS    // Enabled if you have bed clips to avoid manual or probe
+//#define BEDCLIPS    // Enabled if you have bed clips to avoid (manual or probe)
 
 //----------------------------------//
 //logic used to reduce setup steps. //

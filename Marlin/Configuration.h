@@ -766,7 +766,7 @@
 //#define E6_DRIVER_TYPE A4988
 //#define E7_DRIVER_TYPE A4988
 
-#if ENABLED (T2208)
+#if ENABLED (TMC2208)
   #define X_DRIVER_TYPE  TMC2208_STANDALONE
   #define Y_DRIVER_TYPE  TMC2208_STANDALONE
   #define Z_DRIVER_TYPE  TMC2208_STANDALONE
@@ -775,139 +775,139 @@
   #define E2_DRIVER_TYPE TMC2208_STANDALONE
 #endif
 
-#if ENABLED (T2209)
-   #define X_DRIVER_TYPE TMC2209_STANDALONE
-   #define Y_DRIVER_TYPE TMC2209_STANDALONE
-   #define Z_DRIVER_TYPE TMC2209_STANDALONE
+#if ENABLED (TMC2209)
+   #define X_DRIVER_TYPE  TMC2209_STANDALONE
+   #define Y_DRIVER_TYPE  TMC2209_STANDALONE
+   #define Z_DRIVER_TYPE  TMC2209_STANDALONE
    #define E0_DRIVER_TYPE TMC2209_STANDALONE
    #define E1_DRIVER_TYPE TMC2209_STANDALONE
    #define E2_DRIVER_TYPE TMC2209_STANDALONE
 #endif
 
-#if ENABLED (T2130)
-   #define X_DRIVER_TYPE TMC2130_STANDALONE
-   #define Y_DRIVER_TYPE TMC2130_STANDALONE
-   #define Z_DRIVER_TYPE TMC2130_STANDALONE
+#if ENABLED (TMC2130)
+   #define X_DRIVER_TYPE  TMC2130_STANDALONE
+   #define Y_DRIVER_TYPE  TMC2130_STANDALONE
+   #define Z_DRIVER_TYPE  TMC2130_STANDALONE
    #define E0_DRIVER_TYPE TMC2130_STANDALONE
    #define E1_DRIVER_TYPE TMC2130_STANDALONE
    #define E2_DRIVER_TYPE TMC2130_STANDALONE
 #endif
 
-#if ENABLED (T2160)
-   #define X_DRIVER_TYPE TMC2160_STANDALONE
-   #define Y_DRIVER_TYPE TMC2160_STANDALONE
-   #define Z_DRIVER_TYPE TMC2160_STANDALONE
+#if ENABLED (TMC2160)
+   #define X_DRIVER_TYPE  TMC2160_STANDALONE
+   #define Y_DRIVER_TYPE  TMC2160_STANDALONE
+   #define Z_DRIVER_TYPE  TMC2160_STANDALONE
    #define E0_DRIVER_TYPE TMC2160_STANDALONE
    #define E1_DRIVER_TYPE TMC2160_STANDALONE
    #define E2_DRIVER_TYPE TMC2160_STANDALONE
 #endif
 
-#if ENABLED (T26X)
-   #define X_DRIVER_TYPE TMC26X_STANDALONE
-   #define Y_DRIVER_TYPE TMC26X_STANDALONE
-   #define Z_DRIVER_TYPE TMC26X_STANDALONE
+#if ENABLED (TMC26X)
+   #define X_DRIVER_TYPE  TMC26X_STANDALONE
+   #define Y_DRIVER_TYPE  TMC26X_STANDALONE
+   #define Z_DRIVER_TYPE  TMC26X_STANDALONE
    #define E0_DRIVER_TYPE TMC26X_STANDALONE
    #define E1_DRIVER_TYPE TMC26X_STANDALONE
    #define E2_DRIVER_TYPE TMC26X_STANDALONE
 #endif
 
-#if ENABLED (T2660)
-   #define X_DRIVER_TYPE TMC2660_STANDALONE
-   #define Y_DRIVER_TYPE TMC2660_STANDALONE
-   #define Z_DRIVER_TYPE TMC2660_STANDALONE
+#if ENABLED (TMC2660)
+   #define X_DRIVER_TYPE  TMC2660_STANDALONE
+   #define Y_DRIVER_TYPE  TMC2660_STANDALONE
+   #define Z_DRIVER_TYPE  TMC2660_STANDALONE
    #define E0_DRIVER_TYPE TMC2660_STANDALONE
    #define E1_DRIVER_TYPE TMC2660_STANDALONE
    #define E2_DRIVER_TYPE TMC2660_STANDALONE
 #endif
 
-#if ENABLED (T5130)
-   #define X_DRIVER_TYPE TMC5130_STANDALONE
-   #define Y_DRIVER_TYPE TMC5130_STANDALONE
-   #define Z_DRIVER_TYPE TMC5130_STANDALONE
+#if ENABLED (TMC5130)
+   #define X_DRIVER_TYPE  TMC5130_STANDALONE
+   #define Y_DRIVER_TYPE  TMC5130_STANDALONE
+   #define Z_DRIVER_TYPE  TMC5130_STANDALONE
    #define E0_DRIVER_TYPE TMC5130_STANDALONE
    #define E1_DRIVER_TYPE TMC5130_STANDALONE
    #define E2_DRIVER_TYPE TMC5130_STANDALONE
 #endif
 
-#if ENABLED (T5160)
-   #define X_DRIVER_TYPE TMC5160_STANDALONE
-   #define Y_DRIVER_TYPE TMC5160_STANDALONE
-   #define Z_DRIVER_TYPE TMC5160_STANDALONE
+#if ENABLED (TMC5160)
+   #define X_DRIVER_TYPE  TMC5160_STANDALONE
+   #define Y_DRIVER_TYPE  TMC5160_STANDALONE
+   #define Z_DRIVER_TYPE  TMC5160_STANDALONE
    #define E0_DRIVER_TYPE TMC5160_STANDALONE
    #define E1_DRIVER_TYPE TMC5160_STANDALONE
    #define E2_DRIVER_TYPE TMC5160_STANDALONE
 #endif
 
-#if ENABLED (D8825)
-   #define X_DRIVER_TYPE DRV8825
-   #define Y_DRIVER_TYPE DRV8825
-   #define Z_DRIVER_TYPE DRV8825
+#if ENABLED (DRV8825)
+   #define X_DRIVER_TYPE  DRV8825
+   #define Y_DRIVER_TYPE  DRV8825
+   #define Z_DRIVER_TYPE  DRV8825
    #define E0_DRIVER_TYPE DRV8825
    #define E1_DRIVER_TYPE DRV8825
    #define E2_DRIVER_TYPE DRV8825
 #endif
 
 #if ENABLED (STOCK)
-   #define X_DRIVER_TYPE A4988
-   #define Y_DRIVER_TYPE A4988
-   #define Z_DRIVER_TYPE A4988
+   #define X_DRIVER_TYPE  A4988
+   #define Y_DRIVER_TYPE  A4988
+   #define Z_DRIVER_TYPE  A4988
    #define E0_DRIVER_TYPE A4988
    #define E1_DRIVER_TYPE A4988
    #define E2_DRIVER_TYPE A4988
 #endif
 
-#if ENABLED (A598)
-   #define X_DRIVER_TYPE A5984
-   #define Y_DRIVER_TYPE A5984
-   #define Z_DRIVER_TYPE A5984
+#if ENABLED (A5984)
+   #define X_DRIVER_TYPE  A5984
+   #define Y_DRIVER_TYPE  A5984
+   #define Z_DRIVER_TYPE  A5984
    #define E0_DRIVER_TYPE A5984
    #define E1_DRIVER_TYPE A5984
    #define E2_DRIVER_TYPE A5984
 #endif
 
-#if ENABLED (L8729)
-   #define X_DRIVER_TYPE LV8729
-   #define Y_DRIVER_TYPE LV8729
-   #define Z_DRIVER_TYPE LV8729
+#if ENABLED (LV8729)
+   #define X_DRIVER_TYPE  LV8729
+   #define Y_DRIVER_TYPE  LV8729
+   #define Z_DRIVER_TYPE  LV8729
    #define E0_DRIVER_TYPE LV8729
    #define E1_DRIVER_TYPE LV8729
    #define E2_DRIVER_TYPE LV8729
 #endif
 
-#if ENABLED (L647)
-   #define X_DRIVER_TYPE L6470
-   #define Y_DRIVER_TYPE L6470
-   #define Z_DRIVER_TYPE L6470
+#if ENABLED (LV647)
+   #define X_DRIVER_TYPE  L6470
+   #define Y_DRIVER_TYPE  L6470
+   #define Z_DRIVER_TYPE  L6470
    #define E0_DRIVER_TYPE L6470
    #define E1_DRIVER_TYPE L6470
    #define E2_DRIVER_TYPE L6470
 #endif
 
-#if ENABLED (T6560)
-   #define X_DRIVER_TYPE TB6560
-   #define Y_DRIVER_TYPE TB6560
-   #define Z_DRIVER_TYPE TB6560
+#if ENABLED (TB6560)
+   #define X_DRIVER_TYPE  TB6560
+   #define Y_DRIVER_TYPE  TB6560
+   #define Z_DRIVER_TYPE  TB6560
    #define E0_DRIVER_TYPE TB6560
    #define E1_DRIVER_TYPE TB6560
    #define E2_DRIVER_TYPE TB6560
 #endif
 
-#if ENABLED (T6600)
-   #define X_DRIVER_TYPE TB6600
-   #define Y_DRIVER_TYPE TB6600
-   #define Z_DRIVER_TYPE TB6600
+#if ENABLED (TB6600)
+   #define X_DRIVER_TYPE  TB6600
+   #define Y_DRIVER_TYPE  TB6600
+   #define Z_DRIVER_TYPE  TB6600
    #define E0_DRIVER_TYPE TB6600
    #define E1_DRIVER_TYPE TB6600
    #define E2_DRIVER_TYPE TB6600
 #endif
 
 #if ENABLED (CUSTOM)
-   #define X_DRIVER_TYPE
-   #define Y_DRIVER_TYPE
-   #define Z_DRIVER_TYPE
-   #define E0_DRIVER_TYPE
-   #define E1_DRIVER_TYPE
-   #define E2_DRIVER_TYPE
+   #define X_DRIVER_TYPE  TMC2208_STANDALONE
+   #define Y_DRIVER_TYPE  TMC2208_STANDALONE
+   #define Z_DRIVER_TYPE  TMC2208_STANDALONE
+   #define E0_DRIVER_TYPE A4988
+   #define E1_DRIVER_TYPE A4988
+   #define E2_DRIVER_TYPE A4988
 #endif
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
@@ -1204,7 +1204,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#define MULTIPLE_PROBING 3       // Probe # times take the average
+#define MULTIPLE_PROBING 3       // Probe 3 times take the average
 //#define EXTRA_PROBING    1
 
 /**
@@ -1248,13 +1248,15 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-//#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+#if ENABLED (FMP)
+#define PROBING_HEATERS_OFF       // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
-  //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
+  #define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
-//#define PROBING_FANS_OFF          // Turn fans off when probing
+#define PROBING_FANS_OFF          // Turn fans off when probing
 //#define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
 //#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
+#endif
 
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
 // :{ 0:'Low', 1:'High' }
@@ -1640,7 +1642,7 @@
  * Commands to execute at the end of G29 probing.
  * Useful to retract or move the Z probe out of the way.
  */
-//#define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10"
+#define Z_PROBE_END_SCRIPT "G27"
 
 
 // @section homing
@@ -1711,25 +1713,9 @@
 #define SKEW_CORRECTION
 
 #if ENABLED(SKEW_CORRECTION)
-  // Input all length measurements here:
-  //#define XY_DIAG_AC 282.8427124746
-  //#define XY_DIAG_BD 282.8427124746
-  //#define XY_SIDE_AD 200
-
-  // Or, set the default skew factors directly here
-  // to override the above measurements:
   #define XY_SKEW_FACTOR 0.0
-
-  #define SKEW_CORRECTION_FOR_Z
-  #if ENABLED(SKEW_CORRECTION_FOR_Z)
-    //#define XZ_DIAG_AC 282.8427124746
-    //#define XZ_DIAG_BD 282.8427124746
-    //#define YZ_DIAG_AC 282.8427124746
-    //#define YZ_DIAG_BD 282.8427124746
-    //#define YZ_SIDE_AD 200
-    #define XZ_SKEW_FACTOR 0.0
-    #define YZ_SKEW_FACTOR 0.0
-  #endif
+  #define XZ_SKEW_FACTOR 0.0
+  #define YZ_SKEW_FACTOR 0.0
 
   // Enable this option for M852 to set skew at runtime
   #define SKEW_CORRECTION_GCODE
@@ -1766,13 +1752,6 @@
 #define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
 #define DEFAULT_KEEPALIVE_INTERVAL 2  // Number of seconds between "busy" messages. Set with M113.
 #define BUSY_WHILE_HEATING            // Some hosts require "busy" messages even during heating
-
-//
-// M100 Free Memory Watcher
-//
-#if DISABLED (GTM32)
-  #define M100_FREE_MEMORY_WATCHER    // Add M100 (Free Memory Watcher) to debug memory usage
-#endif
 
 //
 // G20/G21 Inch mode support
