@@ -874,7 +874,7 @@
    #define E2_DRIVER_TYPE LV8729
 #endif
 
-#if ENABLED (LV647)
+#if ENABLED (L6470)
    #define X_DRIVER_TYPE  L6470
    #define Y_DRIVER_TYPE  L6470
    #define Z_DRIVER_TYPE  L6470
