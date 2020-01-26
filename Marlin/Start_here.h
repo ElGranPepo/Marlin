@@ -1,7 +1,9 @@
 #pragma once
 #define SHORT_BUILD_VERSION "Build 467"
-#define WEBSITE_URL "https://www.youtube.com/vertabreaker"
+#define WEBSITE_URL "https://www.youtube.com/channel/UCWK0iy2iyQYJoPrpA3RvbEw"
 #define SOURCE_CODE_URL "https://github.com/Vertabreak/Marlin"
+//Patreon: https://www.patreon.com/bePatron?u=29730490
+//Paypal: https://www.paypal.me/vertabreaker
 
 // =  disabled - remove // enabled
 
