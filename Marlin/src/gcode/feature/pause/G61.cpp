@@ -25,7 +25,7 @@
 #if SAVED_POSITIONS
 
 #include "../../../core/language.h"
-#include "../../module/planner.h"
+#include "../../../module/planner.h"
 #include "../../gcode.h"
 #include "../../../module/motion.h"
 
