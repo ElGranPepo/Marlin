@@ -7,56 +7,56 @@
                 "caption": "PIO Build",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py build"
+                    "command": "python3 buildroot/share/vscode/auto_build.py build"
                 }
             },
             {
                 "caption": "PIO Clean",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py clean"
+                    "command": "python3 buildroot/share/vscode/auto_build.py clean"
                 }
             },
             {
                 "caption": "PIO Upload",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py upload"
+                    "command": "python3 buildroot/share/vscode/auto_build.py upload"
                 }
             },
             {
                 "caption": "PIO Upload (traceback)",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py traceback"
+                    "command": "python3 buildroot/share/vscode/auto_build.py traceback"
                 }
             },
             {
                 "caption": "PIO Upload using Programmer",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py program"
+                    "command": "python3 buildroot/share/vscode/auto_build.py program"
                 }
             },
             {
                 "caption": "PIO Test",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py test"
+                    "command": "python3 buildroot/share/vscode/auto_build.py test"
                 }
             },
             {
                 "caption": "PIO Debug",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py debug"
+                    "command": "python3 buildroot/share/vscode/auto_build.py debug"
                 }
             },
             {
                 "caption": "PIO Remote",
                 "command": "webdevshell",
                 "args": {
-                    "command": "python buildroot/share/vscode/auto_build.py remote"
+                    "command": "python3 buildroot/share/vscode/auto_build.py remote"
                 }
             }
         ],
