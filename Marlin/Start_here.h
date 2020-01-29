@@ -25,7 +25,7 @@
 //#define GTD200      // D200 - testing
 
 //(Step 2) enable 1 driver timing set
-//#define STOCK     // Enable A4988   on all drivers (stock drivers)
+//#define STOCK      // Enable A4988   on all drivers (stock drivers)
 #define TMC2208    // Enable TMC2208 Standalone on all drivers
 //#define TMC2209    // Enable TMC2209 Standalone all drivers
 //#define TMC2130    // Enable TMC2130 Standalone all drivers
@@ -34,13 +34,13 @@
 //#define TMC2660    // Enable TMC2660 Standalone all drivers
 //#define TMC5130    // Enable TMC5130 Standalone all drivers
 //#define TMC5160    // Enable TMC5160 Standalone all drivers
-//#define A5984     // Enable A5984   all drivers
+//#define A5984      // Enable A5984   all drivers
 //#define DRV8825    // Enable DRV8825 all drivers
-//#define LV8729    // Enable LV8729  all drivers
-//#define L6470     // Enable L6470   all drivers
-//#define TB6560    // Enable TB6560  all drivers
-//#define TB6600    // Enable TB6600  all drivers
-//#define CUSTOM   // Fill in ENABLED (CUSTOM) in configuration.h with custom set & invert if needed ENABLED (CUSTOM) below.
+//#define LV8729     // Enable LV8729  all drivers
+//#define L6470      // Enable L6470   all drivers
+//#define TB6560     // Enable TB6560  all drivers
+//#define TB6600     // Enable TB6600  all drivers
+//#define CUSTOM     // Fill in ENABLED (CUSTOM) in configuration.h with custom set & invert if needed ENABLED (CUSTOM) below.
 
 //(Step 3) enable 1 if you have mixing or multi extruder (C D M T variants)
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
