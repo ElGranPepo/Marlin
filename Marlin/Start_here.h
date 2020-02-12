@@ -1,5 +1,5 @@
 #pragma once
-#define SHORT_BUILD_VERSION "2.0.x Build 474"
+#define SHORT_BUILD_VERSION "2.0.x Build 475"
 #define WEBSITE_URL         "http://www.geeetech.com/forum/viewtopic.php?f=20&t=69957"
 #define SOURCE_CODE_URL     "https://github.com/Vertabreak/Marlin"
 #define Patreon_URL         "https://www.patreon.com/vertabreaker"
