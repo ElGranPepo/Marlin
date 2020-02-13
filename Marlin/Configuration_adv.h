@@ -660,7 +660,9 @@
   //#define BLTOUCH_HS_MODE
 
   // Safety: Enable voltage mode settings in the LCD menu.
-  #define BLTOUCH_LCD_VOLTAGE_MENU
+  #if ANY(GT2560, GTM32)
+    #define BLTOUCH_LCD_VOLTAGE_MENU
+  #endif
 
 #endif // BLTOUCH
 
@@ -2952,7 +2954,7 @@
  *
  * Implement M486 to allow Marlin to skip objects
  */
-#define CANCEL_OBJECTS
+//#define CANCEL_OBJECTS
 
 /**
  * I2C position encoders for closed loop control.
