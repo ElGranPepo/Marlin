@@ -107,7 +107,7 @@
 #if ENABLED (GTM32)
   #define SERIAL_PORT 1
   //#define SERIAL_PORT_2 2
-#elif ENABLED (GT2560)
+#elif ANY(GT2560, ENDER3)
   #define SERIAL_PORT 0
   //#define SERIAL_PORT_2 3
 #elif ENABLED (NEWMODEL) 
@@ -157,6 +157,8 @@
   #define MOTHERBOARD BOARD_GTM32_MINI
 #elif ENABLED (GTM201)
   #define MOTHERBOARD BOARD_GTM32_REV_B
+#elif ENABLED (ENDER3)
+  #define MOTHERBOARD BOARD_MELZI_CREALITY  
 #elif ENABLED (NEWMODEL) //Replace NEW MODEL with real name
   #define MOTHERBOARD BOARD_RAMPS_14_EFB   // define new models mainboard
  #endif 
@@ -524,6 +526,7 @@
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 #if ENABLED(PIDTEMP)
+#if DISABLED (ENDER3)
   #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
   //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
@@ -532,6 +535,7 @@
   //#define PID_OPENLOOP 1        // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
   //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
   #define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
+  #endif
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
   #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
@@ -555,6 +559,10 @@
     #define  DEFAULT_Kp 17.74
     #define  DEFAULT_Ki 1.90
     #define  DEFAULT_Kd 41.41
+  #elif ENABLED (ENDER3)
+    #define DEFAULT_Kp 21.73
+    #define DEFAULT_Ki 1.54
+    #define DEFAULT_Kd 76.55  
   #elif ENABLED (NEWMODEL) // Hotend PID
     #define  DEFAULT_Kp 1
     #define  DEFAULT_Ki 1
@@ -599,7 +607,7 @@
 #if ENABLED(PIDTEMPBED)
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
-  #if ENABLED (I3PROW) || ENABLED (I3PROA)  || ENABLED (I3PROC) || ENABLED (I3PROX) || ENABLED (GTM201) 
+  #if ANY(I3PROW, I3PROA, I3PROC, I3PROX, GTM201, ENDER3)
     #define  DEFAULT_bedKp 10.00
     #define  DEFAULT_bedKi .023
     #define  DEFAULT_bedKd 305.4
@@ -740,7 +748,7 @@
 #endif
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
-#if ENABLED (I3PROW) || ENABLED (I3PROC) || ENABLED (I3PROB) || ENABLED (I3PROA) || ENABLED (GTM201) 
+#if ANY(I3PROW, I3PROA, I3PROC, I3PROX, GTM201, ENDER3)
   #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
   #define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
   #define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
@@ -1050,8 +1058,9 @@
  * following movement settings. If fewer factors are given than the
  * total number of extruders, the last value applies to the rest.
  */ 
-#define DISTINCT_E_FACTORS
-
+#if DISABLED (ENDER3)
+  #define DISTINCT_E_FACTORS
+#endif
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
@@ -1137,8 +1146,9 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
-
+#if DISABLED (ENDER3)
+  #define S_CURVE_ACCELERATION
+#endif
 //===========================================================================
 //============================= Z Probe Options =============================
 //===========================================================================
@@ -1480,7 +1490,7 @@
   #define X_HOME_DIR -1
   #define Y_HOME_DIR -1
   #define Z_HOME_DIR -1
-#else //A10 & A20 & A30
+#else //A10 & A20 & A30 Ender3
   #define X_HOME_DIR -1
   #define Y_HOME_DIR -1
   #define Z_HOME_DIR -1
@@ -1524,6 +1534,10 @@
 #elif ENABLED (GTA10)
   #define X_BED_SIZE 230
   #define Y_BED_SIZE 230
+  #define Z_MAX_POS 250
+#elif ENABLED (ENDER3)
+  #define X_BED_SIZE 235
+  #define Y_BED_SIZE 235
   #define Z_MAX_POS 250
 #elif ENABLED (NEWMODEL) // Build area XYZ
   #define X_BED_SIZE 200
@@ -1655,11 +1669,18 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
-#define AUTO_BED_LEVELING_UBL
+#if ENABLED (ENDER3)
+  #define AUTO_BED_LEVELING_BILINEAR
+#else
+  #define AUTO_BED_LEVELING_UBL
+#endif
 //#define MESH_BED_LEVELING
+#if ENABLED (ENDER3)
+  #define GRIDSIZE 3         // Mesh grid size adjust as needed
+#else
+  #define GRIDSIZE 5         // Mesh grid size adjust as needed
+#endif
 
-#define GRIDSIZE 5         // Mesh grid size adjust as needed
 /**
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
@@ -1760,7 +1781,7 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-#if DISABLED (AUTO_BED_LEVELING_UBL)
+#if DISABLED (AUTO_BED_LEVELING_UBL) && DISABLED (ENDER3)
   #define LCD_BED_LEVELING
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
@@ -2114,8 +2135,9 @@
  * just remove some extraneous menu items to recover space.
  */
 //#define NO_LCD_MENUS
-//#define SLIM_LCD_MENUS   //removes most advanced configuration menus
-
+#if ENABLED (ENDER3)
+  #define SLIM_LCD_MENUS   //removes most advanced configuration menus
+#endif
 //
 // ENCODER SETTINGS
 //
@@ -2168,8 +2190,9 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-#define INDIVIDUAL_AXIS_HOMING_MENU
-
+#if DISABLED (ENDER3)
+  #define INDIVIDUAL_AXIS_HOMING_MENU
+#endif
 //
 // SPEAKER/BUZZER
 //
@@ -2340,7 +2363,7 @@
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
 #if DISABLED (NOSCREEN)
-  #if ENABLED (GTA20)
+  #if ENABLED (GTA20) || ENABLED (ENDER3)
     #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
     #define ST7920_DELAY_1 DELAY_NS(200)
     #define ST7920_DELAY_2 DELAY_NS(200)

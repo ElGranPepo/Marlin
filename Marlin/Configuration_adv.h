@@ -204,7 +204,9 @@
 #if ENABLED(PIDTEMP)
   // Add an experimental additional term to the heater power, proportional to the extrusion speed.
   // A well-chosen Kc value should add just enough power to melt the increased material volume.
-  #define PID_EXTRUSION_SCALING
+  #if DISABLED (ENDER3)
+    #define PID_EXTRUSION_SCALING
+  #endif
   #if ENABLED(PID_EXTRUSION_SCALING)
     #define DEFAULT_Kc (100) //heating power=Kc*(e_speed)
     #define LPQ_MAX_LEN 50
@@ -238,7 +240,9 @@
    * 5. Enable PID_FAN_SCALING_ALTERNATIVE_DEFINITION and enter the two identified Kf-values in
    *    PID_FAN_SCALING_AT_FULL_SPEED and PID_FAN_SCALING_AT_MIN_SPEED. Enter the minimum speed in PID_FAN_SCALING_MIN_SPEED
    */
-  #define PID_FAN_SCALING
+  #if DISABLED (ENDER3)
+    #define PID_FAN_SCALING
+  #endif
   #if ENABLED(PID_FAN_SCALING)
     #define PID_FAN_SCALING_ALTERNATIVE_DEFINITION
     #if ENABLED(PID_FAN_SCALING_ALTERNATIVE_DEFINITION)
@@ -277,11 +281,11 @@
 #endif
 
 // Show extra position information with 'M114 D'
-#define M114_DETAIL
+//#define M114_DETAIL
 
 // Show Temperature ADC value
 // Enable for M105 to include ADC values read from temperature sensors.
-#define SHOW_TEMP_ADC_VALUES
+//#define SHOW_TEMP_ADC_VALUES
 
 /**
  * High Temperature Thermistor Support
@@ -301,15 +305,16 @@
 
 // The number of consecutive low temperature errors that can occur
 // before a min_temp_error is triggered. (Shouldn't be more than 10.)
-#define MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED 10
+#if DISABLED (ENDER3)
+  #define MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED 10
 
 // The number of milliseconds a hotend will preheat before starting to check
 // the temperature. This value should NOT be set to the time it takes the
 // hot end to reach the target temperature, but the time it takes to reach
 // the minimum temperature your thermistor can read. The lower the better/safer.
 // This shouldn't need to be more than 30 seconds (30000)
-#define MILLISECONDS_PREHEAT_TIME 30000
-
+  #define MILLISECONDS_PREHEAT_TIME 30000
+#endif
 // @section extruder
 
 // Extruder runout prevention.
@@ -952,7 +957,7 @@
 #if HAS_LCD_MENU
 
   // Include a page of printer information in the LCD Main Menu
-  #if DISABLED (GTM32)
+  #if DISABLED (GTM32) && DISABLED (ENDER3)
     #define LCD_INFO_MENU
   #if ENABLED(LCD_INFO_MENU)
     //#define LCD_PRINTER_INFO_IS_BOOTSCREEN // Show bootscreen(s) instead of Printer Info pages
@@ -981,6 +986,7 @@
 
 #endif // HAS_LCD_MENU
 
+#if DISABLED (ENDER3)
 // Scroll a longer status message into view
 #define STATUS_MESSAGE_SCROLLING
 
@@ -1016,6 +1022,7 @@
     //#define PROGRESS_MSG_ONCE           // Show the message for MSG_TIME then clear it
     //#define LCD_PROGRESS_BAR_TEST       // Add a menu item to test the progress bar
   #endif
+#endif
 #endif
 
 #if ENABLED(SDSUPPORT)
@@ -1454,7 +1461,9 @@
  *
  * Warning: Does not respect endstops!
  */
-#define BABYSTEPPING
+#if DISABLED (ENDER3)
+  #define BABYSTEPPING
+#endif
 #if ENABLED(BABYSTEPPING)
   #define BABYSTEP_WITHOUT_HOMING
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
@@ -1502,7 +1511,9 @@
  * See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
  * Mention @Sebastianv650 on GitHub to alert the author of any issues.
  */
-#define LIN_ADVANCE
+#if DISABLED (ENDER3)
+  #define LIN_ADVANCE
+#endif
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K   // Enable for second linear advance constants
   #define LIN_ADVANCE_K 0       // Unit: mm compression per 1mm/s extruder speed
@@ -1611,7 +1622,9 @@
 //
 // G60/G61 Position Save and Return
 //
-#define SAVED_POSITIONS 3         // Each saved position slot costs 12 bytes
+#if DISABLED (ENDER3)
+  #define SAVED_POSITIONS 3         // Each saved position slot costs 12 bytes
+#endif
 
 //
 // G2/G3 Arc Support
@@ -1856,7 +1869,7 @@
  * Requires NOZZLE_PARK_FEATURE.
  * This feature is required for the default FILAMENT_RUNOUT_SCRIPT.
  */
-#if DISABLED (GTM32)
+#if DISABLED (GTM32) && DISABLED (ENDER3)
   #define ADVANCED_PAUSE_FEATURE
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
   #define PAUSE_PARK_RETRACT_FEEDRATE         10  // (mm/s) Initial retract feedrate.
@@ -2863,7 +2876,9 @@
 /**
  * User-defined menu items that execute custom GCode
  */
-#define CUSTOM_USER_MENUS
+#if DISABLED (ENDER3)
+  #define CUSTOM_USER_MENUS
+#endif
 #if ENABLED(CUSTOM_USER_MENUS)
   #define CUSTOM_USER_MENU_TITLE "Tools"
   //#define USER_SCRIPT_DONE "M117 Running"
@@ -2944,7 +2959,9 @@
  * Host Prompt Support enables Marlin to use the host for user prompts so
  * filament runout and other processes can be managed from the host side.
  */
-#define HOST_ACTION_COMMANDS
+#if DISABLED (ENDER3)
+  #define HOST_ACTION_COMMANDS
+#endif
 #if ENABLED(HOST_ACTION_COMMANDS)
   #define HOST_PROMPT_SUPPORT
 #endif

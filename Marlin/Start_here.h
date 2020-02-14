@@ -25,13 +25,15 @@
 //#define I3PROC      // I3PROC    - testing
 //#define I3PROW      // I3PROW    - testing
 //#define I3PROX      // I3PROX    - testing
-//#define ENDER3      // ENDER3    - being added  
 
 //GTM32 Boards - vscode: default_envs = STM32F103VE_GTM32 in platformio.ini
 //#define GTA30       // A30 & Variants
 //#define GTE180      // E180
 //#define GTM201      // M201 - testing
 //#define GTD200      // D200 - testing
+
+//Melzi Boards - vscode: default_envs = melzi in platformio.ini
+//#define ENDER3      // ENDER3 - testing 
 
 //(Step 2) enable 1 driver timing set
 //#define STOCK      // Enable A4988   all drivers (stock drivers)
