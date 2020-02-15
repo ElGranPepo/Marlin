@@ -148,23 +148,23 @@
 //Bed clip logic - use mesh inset or min probe edge to avoid clips not both
 #if ENABLED (BEDCLIPS)
   #define MESH_INSET 10   // Move mesh in #mm from edge
+  //#define MESH_MIN_X MESH_INSET
+  //#define MESH_MIN_Y MESH_INSET
+  //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET) - 40 //PROBE OFFSET X - Workaround for preventing exceeding Max X in some cases
+  //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
 #else
   #define MESH_INSET 0    // Move mesh in #mm from edge
+  //#define MESH_MIN_X MESH_INSET
+  //#define MESH_MIN_Y MESH_INSET
+  //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET) - 40 //PROBE OFFSET X - Workaround for preventing exceeding Max X in some cases
+  //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
 #endif
 
 //Probe offset logic - suggest you mesure yours and adjust as needed. 
 #if DISABLED (MULTIEXTRUDER) && ENABLED (TOUCHPROBE) || ENABLED (FMP)
   #define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 
-  //#define MESH_MIN_X MESH_INSET
-  //#define MESH_MIN_Y MESH_INSET
-  #define MESH_MAX_X X_BED_SIZE - (MESH_INSET) - 38 //PROBE OFFSET X
-  //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
 #elif ENABLED (MULTIEXTRUDER) && ENABLED (TOUCHPROBE) || ENABLED (FMP)
   #define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M+T/A20M+T
-  //#define MESH_MIN_X MESH_INSET
-  //#define MESH_MIN_Y MESH_INSET
-  #define MESH_MAX_X X_BED_SIZE - (MESH_INSET) - 40 //PROBE OFFSET X
-  //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
 #endif
 
 //Bed offset logic - distance from endstop to bed, nozzle on front left bed edge should = X0 Y0
