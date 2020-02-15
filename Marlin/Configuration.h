@@ -532,7 +532,7 @@
 #if ENABLED(PIDTEMP)
 #if DISABLED (ENDER3)
   #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
-  //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
+  #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
   //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   //#define PID_DEBUG             // Sends debug data to the serial port.
@@ -1077,11 +1077,11 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 30 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 120 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 60 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1094,7 +1094,7 @@
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
+  #define MAX_ACCEL_EDIT_VALUES       { 1000, 1000, 200, 10000 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1310,9 +1310,11 @@
 
 // Feedrate (mm/m) for the "accurate" probe of each point
 #if ENABLED (HALFSPEED)
-  #define Z_PROBE_SPEED_SLOW (HOMING_FEEDRATE_Z /2)  // Probe speed reduce/raise if accuracy is poor
+  #define Z_PROBE_SPEED_SLOW (HOMING_FEEDRATE_Z/2)  // 120 Probe speed reduce if accuracy is poor
+#elif ENABLED (DOUBLESPEED)
+  #define Z_PROBE_SPEED_SLOW (HOMING_FEEDRATE_Z*2)  // 480 Probe speed raise if accuracy is poor
 #else
-  #define Z_PROBE_SPEED_SLOW HOMING_FEEDRATE_Z  // Probe speed reduce/raise if accuracy is poor
+  #define Z_PROBE_SPEED_SLOW HOMING_FEEDRATE_Z      // 240 Probe speed reduce/raise if accuracy is poor
 #endif
 
 /**
@@ -1325,7 +1327,9 @@
  * A total of 3 or more adds more slow probes, taking the average.
  */
 #if ENABLED (PROBE3X)
-  #define MULTIPLE_PROBING 3       // Probe 3 times take the average
+  #define MULTIPLE_PROBING 3  // Probe 3 times take the average
+#elif ENABLED (PROBE5X)
+  #define MULTIPLE_PROBING 5  // Probe 5 times take the average
 #endif
 //#define EXTRA_PROBING    1
 
@@ -1680,9 +1684,9 @@
 #endif
 //#define MESH_BED_LEVELING
 #if ENABLED (ENDER3)
-  #define GRIDSIZE 3         // Mesh grid size adjust as needed
+  #define GRIDSIZE 3   // Mesh grid size adjust as needed
 #else
-  #define GRIDSIZE 5         // Mesh grid size adjust as needed
+  #define GRIDSIZE 5   // Mesh grid size adjust as needed
 #endif
 
 /**
@@ -1956,7 +1960,7 @@
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
   #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MAX_POS , 20 }
-  #define NOZZLE_PARK_XY_FEEDRATE 40    // (mm/s) X and Y axes feedrate (also used for delta Z axis)
+  #define NOZZLE_PARK_XY_FEEDRATE 20    // (mm/s) X and Y axes feedrate (also used for delta Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE  4     // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
 

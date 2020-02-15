@@ -81,12 +81,14 @@
 //---------------------------
 
 //Probe Options
-//#define PROBE3X        // Probe 3X take the average for greater accuracy
-//#define HEATERACCURACY // Disable heaters while probing for greater accuracy
-//#define HALFSPEED      // Reduce probing speed by 50% = 120
+//#define PROBE3X        // Probe 3X take the average - may effect accuracy +-
+//#define PROBE5X        // Probe 5X take the average - may effect accuracy +-
+//#define HEATERACCURACY // Disable heaters while probing - may effect accuracy +-
+//#define HALFSPEED      // Reduce probing speed by 50% = 120 - may effect accuracy +-
+//#define DOUBLESPEED    // Raise probing speed by 100% = 480 - may effect accuracy +-
 
 //Optional features
-//#define NOSCREEN   // Disable the screen and sdsupport
+//#define NOSCREEN   // Disable the screen and sdsupport - save alot of resources
 //#define PLR        // Enabled power loss resume
 //#define RUNOUT     // Enable filament runout sensor
 //#define BEDCLIPS   // Enable to avoid bed clips (manual or probe)
