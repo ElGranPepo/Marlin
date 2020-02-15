@@ -1,0 +1,20 @@
+Start gcode
+G28   ;home
+G1  Z5;move z5
+G92 E0;set position e0
+G1  E1;prime
+G92 E0;set position e0
+
+End gcode
+M104 S0;set extruder temp 0
+M140 S0;set bed temp 0
+G92 E1 ;set position e1
+G1 E-1 ;move e-1
+G27    ;Park
+
+UBL gcode script
+G28        ;Home
+G29 P1     ;UBL Probe Bed
+G29 P3     ;UBL Smart Fillin
+G29 A      ;Activate UBL
+M500       ;Save everything to eeprom
