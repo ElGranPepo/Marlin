@@ -86,6 +86,7 @@
 //#define HALFSPEED      // Reduce probing speed by 50% = 120
 
 //Optional features
+//#define NOSCREEN   // Disable the screen and sdsupport
 //#define PLR        // Enabled power loss resume
 //#define RUNOUT     // Enable filament runout sensor
 //#define BEDCLIPS   // Enable to avoid bed clips (manual or probe)
