@@ -134,7 +134,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -1073,7 +1073,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 60 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1086,7 +1086,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 5000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1833,7 +1833,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY 2400
+#define HOMING_FEEDRATE_XY 1200
 #define HOMING_FEEDRATE_Z  240
 #define HOMING_FEEDRATE_E  120
 
@@ -2363,7 +2363,7 @@
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
 #if DISABLED (NOSCREEN)
-  #if ENABLED (GTA20) || ENABLED (ENDER3)
+  #if ENABLED (GTA20)
     #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
     #define ST7920_DELAY_1 DELAY_NS(200)
     #define ST7920_DELAY_2 DELAY_NS(200)
@@ -2385,6 +2385,10 @@
   //#define ULTIPANEL
   //#define NEWPANEL
   //#define SDSUPPORT
+ #elif ENABLED (ENDER3)
+   #define CR10_STOCKDISPLAY
+   #define ULTIPANEL
+   #define SDSUPPORT 
  #else //A10 
   #define REPRAP_DISCOUNT_SMART_CONTROLLER
   #define ULTIPANEL

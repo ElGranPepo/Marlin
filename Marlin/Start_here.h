@@ -162,21 +162,21 @@
 
 //Probe offset logic - suggest you mesure yours and adjust as needed. 
 #if DISABLED (MULTIEXTRUDER) && ENABLED (TOUCHPROBE) || ENABLED (FMP)
-  #define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 
+  #define NOZZLE_TO_PROBE_OFFSET { -38, 5, 0 } // Nozzle To Probe offset XYZ A10/A20 - this is what it is on my test machines yours could differ
 #elif ENABLED (MULTIEXTRUDER) && ENABLED (TOUCHPROBE) || ENABLED (FMP)
-  #define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M+T/A20M+T
+  #define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M+T/A20M+T - this is what it is on my test machines yours could differ
 #endif
 
 //Bed offset logic - distance from endstop to bed, nozzle on front left bed edge should = X0 Y0
 #if ENABLED (GTA20) && ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (GTA10) && ENABLED (MIXT) || ENABLED (CYCLOPST)
-  #define X_MIN_POS -1   
-  #define Y_MIN_POS -7 
+  #define X_MIN_POS -1   //- this is what it is on my test machines yours could differ
+  #define Y_MIN_POS -7   //- this is what it is on my test machines yours could differ
 #elif ENABLED (GTA10) || ENABLED (GTA30)
-  #define X_MIN_POS -10
-  #define Y_MIN_POS -5  
+  #define X_MIN_POS -10  //- this is what it is on my test machines yours could differ
+  #define Y_MIN_POS -5   //- this is what it is on my test machines yours could differ
 #elif ENABLED (GTA20)
-  #define X_MIN_POS -10   
-  #define Y_MIN_POS 0    
+  #define X_MIN_POS -10  //- this is what it is on my test machines yours could differ 
+  #define Y_MIN_POS 0    //- this is what it is on my test machines yours could differ
 #elif ENABLED (NEWMODEL) 
   #define X_MIN_POS 0        
   #define Y_MIN_POS 0  
@@ -187,7 +187,7 @@
 
 //Steps selection logic
 #if DISABLED (MULTIEXTRUDER) 
-  #define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
+  #define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 95 }  // ungeared extruder found on a10/a20/a30/i3pro
   //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
   #else
     #define DEFAULT_AXIS_STEPS_PER_UNIT  { 80, 80, 400, 430 } // geared extruder found on M & T variants
