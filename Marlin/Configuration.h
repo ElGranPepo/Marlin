@@ -73,7 +73,7 @@
 // Author info of this build printed to the host during boot and M115
 #define STRING_CONFIG_H_AUTHOR "(Vertabreaker)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
-#include "Start_here.h"
+#include "Start_here.h"  // Where you should start
 
 /**
  * *** VENDORS PLEASE READ ***
@@ -112,8 +112,10 @@
   //#define SERIAL_PORT_2 3
 #elif ENABLED (NEWMODEL) 
   #define SERIAL_PORT 0
+  //#define SERIAL_PORT_2 -1
 #else
   #define SERIAL_PORT 0
+  //#define SERIAL_PORT_2 -1
 #endif
 
 /**
@@ -135,7 +137,7 @@
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
 #if ENABLED (ENDER3)
-  #define BAUDRATE 115200
+  #define BAUDRATE 115200  // Likly runs fine at 250000 but just in case
 #else
   #define BAUDRATE 250000
 #endif
@@ -1065,6 +1067,7 @@
 #if DISABLED (ENDER3)
   #define DISTINCT_E_FACTORS
 #endif
+
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
@@ -1300,7 +1303,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 0
+#define MIN_PROBE_EDGE 0 //suggested only using mesh inset to adjust probe area
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED HOMING_FEEDRATE_XY
@@ -1355,8 +1358,8 @@
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
-#define Z_PROBE_OFFSET_RANGE_MIN -20
-#define Z_PROBE_OFFSET_RANGE_MAX  0
+#define Z_PROBE_OFFSET_RANGE_MIN -5 // If your z probe offset is greater then -5 i would be shocked if it worked
+#define Z_PROBE_OFFSET_RANGE_MAX  0 // Z probe offset should always be - there are very few rare cases where it would be +
 
 // Enable the M48 repeatability test to test probe accuracy
 //#define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -1683,6 +1686,7 @@
   #define AUTO_BED_LEVELING_UBL
 #endif
 //#define MESH_BED_LEVELING
+
 #if ENABLED (ENDER3)
   #define GRIDSIZE 3   // Mesh grid size adjust as needed
 #else
@@ -1811,7 +1815,7 @@
  * Commands to execute at the end of G29 probing.
  * Useful to retract or move the Z probe out of the way.
  */
-//#define Z_PROBE_END_SCRIPT "G28XY"
+#define Z_PROBE_END_SCRIPT "G28XY"
 
 
 // @section homing
