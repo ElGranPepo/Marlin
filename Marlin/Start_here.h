@@ -17,7 +17,7 @@
 
 //(Step 1) enable 1 base model
 //GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
-#define GTA10       // A10 & Variants
+//#define GTA10       // A10 & Variants
 //#define GTA20       // A20 & Variants
 //#define MECREATOR2  // Mecreator2     
 //#define I3PROA      // PI3A Pro  - testing
@@ -34,6 +34,9 @@
 
 //Melzi Boards - vscode: default_envs = melzi in platformio.ini
 //#define ENDER3      // ENDER3 - testing 
+
+//RAMPS 1.4 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
+//#define FT5R1      // FT5R1 - testing 
 
 //(Step 2) enable 1 driver timing set
 //#define STOCK      // Enable A4988   all drivers (stock drivers)
