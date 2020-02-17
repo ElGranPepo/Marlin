@@ -12,7 +12,7 @@
 //Post flash initilize the eeprom  |
 //Guides on my youtube channel     |
 //Subscribe to support the channel |
-//Not compatible with arduino ide  |
+//Not compatible with arduino ide  | 
 //----------------------------------
 
 //(Step 1) enable 1 base model
