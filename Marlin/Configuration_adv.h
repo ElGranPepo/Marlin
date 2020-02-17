@@ -279,11 +279,11 @@
 #endif
 
 // Show extra position information with 'M114 D'
-//#define M114_DETAIL
+#define M114_DETAIL
 
 // Show Temperature ADC value
 // Enable for M105 to include ADC values read from temperature sensors.
-//#define SHOW_TEMP_ADC_VALUES
+#define SHOW_TEMP_ADC_VALUES
 
 /**
  * High Temperature Thermistor Support
@@ -353,7 +353,7 @@
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-//#define FAN_KICKSTART_TIME 100
+#define FAN_KICKSTART_TIME 100
 
 // Some coolers may require a non-zero "off" state.
 //#define FAN_OFF_PWM  1
@@ -772,7 +772,7 @@
 // Backlash Compensation
 // Adds extra movement to axes on direction-changes to account for backlash.
 //
-//#define BACKLASH_COMPENSATION
+#define BACKLASH_COMPENSATION
 #if ENABLED(BACKLASH_COMPENSATION)
   // Define values for backlash distance and correction.
   // If BACKLASH_GCODE is enabled these values are the defaults.
@@ -946,7 +946,7 @@
 #endif
 
 // Play a beep when the feedrate is changed from the Status Screen
-//#define BEEP_ON_FEEDRATE_CHANGE
+#define BEEP_ON_FEEDRATE_CHANGE
 #if ENABLED(BEEP_ON_FEEDRATE_CHANGE)
   #define FEEDRATE_CHANGE_BEEP_DURATION  50
   #define FEEDRATE_CHANGE_BEEP_FREQUENCY 10
@@ -1041,7 +1041,7 @@
 
   #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing
 
-  //#define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
+  #define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
 
   #define EVENT_GCODE_SD_STOP "G27"       // G-code to run on Stop Print (e.g., "G28XY" or "G27")
 
@@ -1109,7 +1109,7 @@
   #endif
 
   // This allows hosts to request long names for files and folders with M33
-  //#define LONG_FILENAME_HOST_SUPPORT
+  #define LONG_FILENAME_HOST_SUPPORT
 
   // Enable this option to scroll long filenames in the SD card menu
   #define SCROLL_LONG_FILENAMES
@@ -1584,6 +1584,37 @@
   #define G29_RECOVER_COMMANDS "M117 Probe failed. Rewiping.\nG28\nG12 P0 S12 T0"
   #define G29_FAILURE_COMMANDS "M117 Bed leveling failed.\nG0 Z10\nM300 P25 S880\nM300 P50 S0\nM300 P25 S880\nM300 P50 S0\nM300 P25 S880\nM300 P50 S0\nG4 S1"
 
+#endif
+/**
+ * Thermal Probe Compensation
+ * Probe measurements are adjusted to compensate for temperature distortion.
+ * Use G76 to calibrate this feature. Use M871 to set values manually.
+ * For a more detailed explanation of the process see G76_M871.cpp.
+ */
+#if HAS_BED_PROBE && TEMP_SENSOR_PROBE && TEMP_SENSOR_BED
+  // Enable thermal first layer compensation using bed and probe temperatures
+  #define PROBE_TEMP_COMPENSATION
+
+  // Add additional compensation depending on hotend temperature
+  // Note: this values cannot be calibrated and have to be set manually
+  #ifdef PROBE_TEMP_COMPENSATION
+    // Max temperature that can be reached by heated bed.
+    // This is required only for the calibration process.
+    #define PTC_MAX_BED_TEMP 110
+
+    // Park position to wait for probe cooldown
+    #define PTC_PARK_POS_X 0.0F
+    #define PTC_PARK_POS_Y 0.0F
+    #define PTC_PARK_POS_Z 100.0F
+
+    // Probe position to probe and wait for probe to reach target temperature
+    #define PTC_PROBE_POS_X  90.0F
+    #define PTC_PROBE_POS_Y 100.0F
+
+    // Enable additional compensation using hotend temperature
+    // Note: this values cannot be calibrated automatically but have to be set manually
+    //#define USE_TEMP_EXT_COMPENSATION
+  #endif
 #endif
 
 /**
@@ -2868,7 +2899,7 @@
  * Add G-codes M810-M819 to define and run G-code macros.
  * Macros are not saved to EEPROM.
  */
-//#define GCODE_MACROS
+#define GCODE_MACROS
 #if ENABLED(GCODE_MACROS)
   #define GCODE_MACROS_SLOTS      10  // Up to 10 may be used
   #define GCODE_MACROS_SLOT_SIZE  25  // Maximum length of a single macro
@@ -2972,7 +3003,7 @@
  *
  * Implement M486 to allow Marlin to skip objects
  */
-//#define CANCEL_OBJECTS
+#define CANCEL_OBJECTS
 
 /**
  * I2C position encoders for closed loop control.
